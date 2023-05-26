@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +26,19 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Product</a></li>
                     <li><a href="register.php">Register</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li>
+                        <?php 
+                          if(isset($_SESSION["uname"])!=null)
+                          {
+                            echo '<a href="login.php">'.$_SESSION["uname"].'</a>';
+                          }
+                          else
+                          {
+                            echo '<a href="login.php">Login</a>';
+                          }
+                        ?>
+
+                    </li>
                 </ul>
             </div>
         </nav>
